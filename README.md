@@ -9,3 +9,4 @@ Now we configure the websecurity adapter so that
  1. Only Admins can use post
  2. Both Admins and users can use GET
  
+ User Logs in with email and pasword
