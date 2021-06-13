@@ -1,4 +1,3 @@
-use mydb;
 
 create table product(
 id int IDENTITY(1,1) NOT NULL,
