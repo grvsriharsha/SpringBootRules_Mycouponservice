@@ -28,14 +28,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
+	public void configure(HttpSecurity http) throws Exception {
 
 		http.httpBasic();
-		http.authorizeRequests()
-				.mvcMatchers(HttpMethod.GET, "/couponapi/coupons")
-				.hasAnyRole("USER", "ADMIN")
+		http.authorizeRequests().mvcMatchers(HttpMethod.GET, "/couponapi/coupons/{code:^[A-Z]*$}")
+				.hasAnyRole("USER","ADMIN")
 				.mvcMatchers(HttpMethod.POST, "/couponapi/coupons")
-				.hasAnyRole("ADMIN").and().csrf().disable();
+				.hasRole("ADMIN")
+				.and().csrf().disable();
 
 	}
 
