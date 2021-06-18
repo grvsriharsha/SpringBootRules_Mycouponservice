@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().mvcMatchers(HttpMethod.GET, "/couponapi/coupons/{code:^[A-Z]*$}")
 				.hasAnyRole("USER","ADMIN")
 				.mvcMatchers(HttpMethod.POST, "/couponapi/coupons")
-				.hasRole("ADMIN")
+				.hasRole("ADMIN").anyRequest().denyAll()
 				.and().csrf().disable();
 
 	}
